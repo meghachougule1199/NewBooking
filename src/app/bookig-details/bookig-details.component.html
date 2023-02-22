@@ -1,0 +1,94 @@
+<h1 style="background-color:blanchedalmond ;margin-left:7%;width:40%  ; ">Registration</h1>
+<table>
+     <div class="doBooking">
+        <form (ngSubmit)="doFormSubmit()" #bookingForm="ngForm">
+      
+<table>
+    <tr>
+        <div class="form-group">
+            <td><label> <h3>Name</h3></label></td>
+            <td><input type="text" #name="ngModel" pattern="[a-zA-Z]+" [(ngModel)]="b.name"
+                    class="form-control" id="bName" name="bName" placeholder=" " required>
+                <div *ngIf="name.invalid">
+                    <span style="color: red;" *ngIf="name.errors?.['required']">
+
+                        Name is required Field
+                    </span>
+                    <span style="color: red;" *ngIf="name.errors?.['pattern']">
+                     Name is not valid
+                    </span>
+                </div>
+            </td>
+        </div>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+
+        <div class="form-group">
+
+            <td><label><h3>Enter Mobile Number</h3></label></td>
+            <td><input type="text" [(ngModel)]="b.mobileNumber" class="form-control" id="bPhone" name="bPhone"
+                    #mobileNumber="ngModel" required pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]">
+                <div *ngIf="mobileNumber.invalid">
+                    <span style="color: red;" *ngIf="mobileNumber.errors?.['required']">
+
+                        Mobile Number is required Field
+                    </span>
+                    <span style="color: red;" *ngIf="mobileNumber.errors?.['pattern']">
+                       Mobile Number is not valid
+                    </span>
+                </div>
+            </td>
+        </div>
+    </tr>
+</table>
+
+<tr>
+    <td><h3>Enter Date Of Booking</h3> </td>
+    <td><input type ="date" #dateOfBooking/></td>
+</tr>
+<tr>
+    <td><h3>Source Airport</h3></td>
+    <td> 
+        <select #sourceAirport>
+            <option> Pune </option>
+            <option> Mumbai </option>
+            <option> Delhi </option>
+            <option> Goa </option>
+            <option> Hydrabad </option>
+            <option> Banglore </option>
+            <option> Kolkata </option>
+            <option> Nagpur </option>
+            <option> Chennai </option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td><h3>Destination Airport</h3></td>
+    <td> 
+        <select #destinationAirport>
+            <option> Pune </option>
+            <option> Mumbai </option>
+            <option> Delhi </option>
+            <option> Goa </option>
+            <option> Hydrabad </option>
+            <option> Banglore </option>
+            <option> Kolkata </option>
+            <option> Nagpur </option>
+            <option> Chennai </option>
+        </select>
+    </td>
+</tr>
+<br/>
+
+<button style="border: 1px ;background-color:rgb(15, 16, 3);color: bisque ;" type="submit"
+    class="btn btn-primary mb-2" [disabled]="bookingForm.form.invalid">Book </button>
+
+</form>
+
+</div>
+</table>
+
